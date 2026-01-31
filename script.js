@@ -20,3 +20,17 @@ document.getElementById("prev").addEventListener("click", () => {
   if (current < 1) current = totalImages;
   updatePhoto();
 });
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") {
+    current++;
+    if (current > totalImages) current = 1;
+    updatePhoto();
+  }
+
+  if (e.key === "ArrowLeft") {
+    current--;
+    if (current < 1) current = totalImages;
+    updatePhoto();
+  }
+});
