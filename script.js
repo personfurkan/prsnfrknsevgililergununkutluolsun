@@ -19,20 +19,20 @@ let current = 0;
 const photo = document.getElementById("photo");
 const caption = document.getElementById("caption");
 
-function updatePhoto() {
-  photo.src = `images/${images[current]}`;
-  caption.textContent = `${current + 1}. fotoğraf`;
+function showImage() {
+  photo.src = "images/" + images[current];
+  caption.textContent = `${current + 1} / ${images.length}`;
 }
 
-document.getElementById("next").addEventListener("click", () => {
+document.getElementById("next").onclick = () => {
   current = (current + 1) % images.length;
-  updatePhoto();
-});
+  showImage();
+};
 
-document.getElementById("prev").addEventListener("click", () => {
+document.getElementById("prev").onclick = () => {
   current = (current - 1 + images.length) % images.length;
-  updatePhoto();
-});
+  showImage();
+};
 
-// ilk foto
-updatePhoto();
+// SAYFA AÇILINCA İLK FOTO
+showImage();
